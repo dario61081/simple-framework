@@ -11,6 +11,13 @@ class SimpleController {
     private array $middlewares = [];
     private string $prefix = "";
 
+/* <<<<<<<<<<<<<<  ✨ Windsurf Command ⭐ >>>>>>>>>>>>>>>> */
+    /**
+     * Adds a middleware to be executed before any route
+     * @param callable $middleware a callable function to be executed
+     * @return void
+     */
+/* <<<<<<<<<<  a0d37092-8f6b-4616-b039-287450647daa  >>>>>>>>>>> */
     public function use(callable $middleware): void {
         $this->middlewares[] = $middleware;
     }
@@ -59,6 +66,7 @@ class SimpleController {
         $this->delete($basePath . "/{id}", [$ctrl, "destroy"]);
     }
 
+
     public function autoloadControllers(string $directory, string $baseNamespace = "", string $basePath = ""): void {
         $files = glob($directory . "/*.php");
         $dirs  = glob($directory . "/*", GLOB_ONLYDIR);
@@ -86,6 +94,15 @@ class SimpleController {
         }
     }
 
+
+    /**
+     * Ejecuta la ruta adecuada para la peticion actual.
+     * Primero itera sobre las rutas registradas en busca de la primera que coincida
+     * con el m todo HTTP y la ruta actual. Si se encuentra una ruta que coincide, se
+     * ejecuta el middleware correspondiente (si lo hay) y se llama al manejador de la
+     * ruta. Si no se encuentra ninguna ruta que coincida, se devuelve un error 404 con un mensaje
+     * de "Ruta no encontrada".
+     */
     public function execute(): void {
         $request = new SimpleRequest();
         $response = new SimpleResponse();

@@ -1,0 +1,24 @@
+{
+  "name": "dario61081/simple-framework",
+  "description": "Micro framework de routing estilo Express para PHP",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "SimpleFramework\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.3"
+  },
+  "license": "MIT",
+  "keywords": [
+    "framework","micro-framework","router","http","psr-7", "router", "http", "psr-7"
+  ],
+  "authors": [
+    {
+      "name": "Dario Garcia",
+      "email": "dario61081@gmail.com"
+    }
+  ],
+  "version": "1.0.0"
+}
